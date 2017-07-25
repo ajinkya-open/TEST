@@ -1,0 +1,28 @@
+import math
+
+freq=raw_input("enter frequency :")
+print "F="+str(freq)
+prescaler=raw_input("enter prescaler :")
+print "p="+str(prescaler)
+resolution=raw_input("resolution 8 or 16 bit? :")
+print "resolution ="+str(resolution)
+
+
+fClk=(float(freq)/float(prescaler))
+leastCountTime=(1/fClk)
+maxRaisedCount=math.pow(2,float(resolution))
+maximumCounts=math.pow(2,float(resolution))*leastCountTime
+
+print "Cfreq (timer clock)="+str(fClk)
+print "timer least count :"+str(leastCountTime)
+print "toral time it can make delay of is in seconds ="+str(maximumCounts)
+
+
+print "---------------"
+targetTime=raw_input("how much time you want to count? :")
+
+print str(targetTime)
+
+
+targetClockCounts=float(targetTime)/float(leastCountTime)
+print "Target clock counts : " +str(targetClockCounts) + " and max count can be only "+str(maxRaisedCount)
